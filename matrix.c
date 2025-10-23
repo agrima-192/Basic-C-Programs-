@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 // Function to print matrix
 void printMatrix(int mat[10][10], int r, int c) {
     for (int i = 0; i < r; i++) {
@@ -8,7 +7,6 @@ void printMatrix(int mat[10][10], int r, int c) {
         printf("\n");
     }
 }
-
 // Function to add two matrices
 void addMatrix(int A[10][10], int B[10][10], int r, int c) {
     int sum[10][10];
@@ -19,7 +17,6 @@ void addMatrix(int A[10][10], int B[10][10], int r, int c) {
     printf("\nSum of Matrices:\n");
     printMatrix(sum, r, c);
 }
-
 // Function to multiply two matrices
 void multiplyMatrix(int A[10][10], int B[10][10], int m, int n, int p, int q) {
     int product[10][10] = {0};
@@ -31,7 +28,6 @@ void multiplyMatrix(int A[10][10], int B[10][10], int m, int n, int p, int q) {
     printf("\nProduct of Matrices:\n");
     printMatrix(product, m, q);
 }
-
 // Function to calculate determinant (recursive)
 int determinant(int A[10][10], int n) {
     int det = 0, submat[10][10];
@@ -59,7 +55,6 @@ int determinant(int A[10][10], int n) {
 int main() {
     int A[10][10], B[10][10];
     int m, n, p, q;
-
     // Input matrix A
     printf("Enter rows and columns of Matrix A: ");
     scanf("%d%d", &m, &n);
@@ -67,7 +62,6 @@ int main() {
     for (int i = 0; i < m; i++)
         for (int j = 0; j < n; j++)
             scanf("%d", &A[i][j]);
-
     // Input matrix B
     printf("Enter rows and columns of Matrix B: ");
     scanf("%d%d", &p, &q);
@@ -79,22 +73,18 @@ int main() {
     // Print matrices
     printf("\nMatrix A:\n");
     printMatrix(A, m, n);
-
     printf("\nMatrix B:\n");
     printMatrix(B, p, q);
-
     // Sum
     if (m == p && n == q)
         addMatrix(A, B, m, n);
     else
         printf("\nSum not possible (order mismatch).\n");
-
     // Product
     if (n == p)
         multiplyMatrix(A, B, m, n, p, q);
     else
         printf("\nProduct not possible (A's columns != B's rows).\n");
-
     // Determinant
     if (m == n) {
         int detA = determinant(A, m);
@@ -109,6 +99,5 @@ int main() {
     } else {
         printf("Determinant of Matrix B not possible (not square).\n");
     }
-
     return 0;
 }
